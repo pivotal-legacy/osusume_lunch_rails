@@ -22,6 +22,7 @@ gem 'puma', '~> 3.0'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.5.2'
+  gem 'rails-controller-testing', '~> 1.0.1'
   gem 'byebug', platform: :mri
 end
 
