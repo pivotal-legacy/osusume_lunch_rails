@@ -1,0 +1,10 @@
+---
+applications:
+- name: osusume_lunch_rails
+  random-route: true
+  memory: 256M
+  instances: 1
+  path: .
+  command: bundle exec rails db:migrate && bundle exec rails s -p $PORT
+  services:
+    - osusume_lunch_rails_postgres

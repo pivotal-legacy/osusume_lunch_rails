@@ -7,4 +7,20 @@ RSpec.describe 'Restaurants', type: :request do
       expect(response).to have_http_status(200)
     end
   end
+
+  describe 'GET /restaurants/recommendation' do
+    it 'returns random restaurant' do
+      restaurants = [
+        Restaurant.create(name: 'Afuri'),
+        Restaurant.create(name: 'Butagumi')
+      ]
+
+      get restaurant_path('recommendation')
+
+      response_restaurant = JSON.parse(response.body)['name']
+      restaurant_names = restaurants.map(&:name)
+
+      expect(restaurant_names).to include(response_restaurant)
+    end
+  end
 end
