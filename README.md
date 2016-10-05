@@ -1,24 +1,40 @@
-# README
+# osusume-lunch-rails
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Description
+This API provides restaurant lunch data as JSON (currently used by [osusume-lunch-ios](https://github.com/pivotal-tokyo/osusume-lunch-ios).
 
-Things you may want to cover:
+## Getting Started
+This project requires Ruby 2.3.1, Rails 5.0.0.1, and Postgres 9.5.x.
 
-* Ruby version
+1.) Install dependencies
+```
+bundle install
+```
 
-* System dependencies
+2.) Create the databases
+```
+rails db:create db:migrate
+```
 
-* Configuration
+3.) Run the seeds file
+```
+rails db:seed
+```
 
-* Database creation
+4.) Start the API
+```
+rails s
+```
 
-* Database initialization
+## Running Tests
+```
+rspec
+```
 
-* How to run the test suite
+## Deploying
+We have deployed this API to Cloud Foundry. It is currently available at https://osusume-lunch.cfapps.io/.
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Updates can be pushed by running:
+```
+make deploy
+```
