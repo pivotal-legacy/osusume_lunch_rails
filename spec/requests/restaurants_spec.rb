@@ -10,7 +10,7 @@ RSpec.describe 'Restaurants', type: :request do
 
       get restaurants_path
 
-      response_restaurants = JSON.parse(response.body)
+      response_restaurants = JSON.parse(response.body)['restaurants']
       restaurant_names = restaurants.map(&:name)
 
       expect(response).to have_http_status(200)
