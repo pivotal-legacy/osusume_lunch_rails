@@ -7,4 +7,4 @@ applications:
   path: .
   command: bundle exec rails db:migrate && bundle exec rails s -p $PORT
   services:
-    - osusume_lunch_rails_postgres
+    - osusume_lunch_rails_postgres2
