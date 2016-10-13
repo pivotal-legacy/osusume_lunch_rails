@@ -34,4 +34,19 @@ RSpec.describe 'Restaurants', type: :request do
       expect(restaurant_names).to include(response_restaurant)
     end
   end
+
+  describe 'POST /restaurants' do
+    it 'returns created restaurant' do
+      restaurant_json = {
+        restaurant: { name: 'New Restaurant' }
+      }
+
+      post restaurants_path, restaurant_json
+
+      response_json = JSON.parse(response.body)
+
+      expect(response.status).to eq(201)
+      expect(response_json['name']).to eq('New Restaurant')
+    end
+  end
 end
