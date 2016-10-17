@@ -3,11 +3,8 @@ require 'rails_helper'
 RSpec.describe 'Restaurants', type: :request do
   describe 'GET /restaurants' do
     it 'returns a list of restaurants' do
-      restaurants = [
-        Restaurant.create(name: 'Butagumi'),
-        Restaurant.create(name: 'Afuri')
-      ]
-
+      Restaurant.create(name: 'Afuri')
+      Restaurant.create(name: 'Butagumi')
       get restaurants_path
 
       response_restaurants = JSON.parse(response.body)['restaurants']
