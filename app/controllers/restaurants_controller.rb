@@ -6,7 +6,7 @@ class RestaurantsController < ApplicationController
   end
 
   def show
-    @restaurant = Restaurant.all.sample
+    @restaurant = Restaurant.find(params[:id])
 
     render json: @restaurant
   end

@@ -15,19 +15,16 @@ RSpec.describe 'Restaurants', type: :request do
     end
   end
 
-  describe 'GET /restaurants/recommendation' do
-    it 'returns random restaurant' do
-      restaurants = [
-        Restaurant.create(name: 'Afuri'),
-        Restaurant.create(name: 'Butagumi')
-      ]
+  describe 'GET /restaurants/1' do
+    it 'returns restaurant with specific id' do
+      afuri = Restaurant.create(name: 'Afuri')
+      Restaurant.create(name: 'Butagumi')
 
-      get restaurant_path('recommendation')
+      get restaurant_path(afuri.id)
 
       response_restaurant = JSON.parse(response.body)['name']
-      restaurant_names = restaurants.map(&:name)
 
-      expect(restaurant_names).to include(response_restaurant)
+      expect(response_restaurant).to eq(afuri.name)
     end
   end
 
