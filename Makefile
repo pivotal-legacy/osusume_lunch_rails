@@ -1,4 +1,4 @@
-tests: setup units printArt
+tests: bundle setup units printArt
 
 units:
 	@rspec
