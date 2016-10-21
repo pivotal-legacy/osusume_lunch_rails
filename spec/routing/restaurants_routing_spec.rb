@@ -13,5 +13,13 @@ RSpec.describe RestaurantsController, type: :routing do
         id: '1'
       )
     end
+
+    it 'routes to destroy specific restaurant' do
+      expect(delete: '/restaurants/1').to route_to(
+        controller: 'restaurants',
+        action: 'destroy',
+        id: '1'
+      )
+    end
   end
 end

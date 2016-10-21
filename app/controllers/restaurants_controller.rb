@@ -1,4 +1,5 @@
 class RestaurantsController < ApplicationController
+  before_action :set_restaurant, only: [:show, :destroy]
   def index
     @restaurants = Restaurant.order(:name)
 
@@ -6,8 +7,6 @@ class RestaurantsController < ApplicationController
   end
 
   def show
-    @restaurant = Restaurant.find(params[:id])
-
     render json: @restaurant
   end
 
@@ -21,7 +20,14 @@ class RestaurantsController < ApplicationController
     end
   end
 
+  def destroy
+    @restaurant.destroy
+  end
+
   private
+  def set_restaurant
+    @restaurant = Restaurant.find(params[:id])
+  end
 
   def restaurant_params
     params.require(:restaurant).permit(:name)

@@ -42,4 +42,16 @@ RSpec.describe 'Restaurants', type: :request do
       expect(response_json['name']).to eq('New Restaurant')
     end
   end
+
+  describe 'DELETE /restaurants/1' do
+    it 'delete restaurant' do
+      afuri = Restaurant.create(name: 'Afuri')
+      Restaurant.create(name: 'Butagumi')
+
+      delete restaurant_path(afuri.id, format: :json)
+
+      expect(response.status).to eq(204)
+      expect(Restaurant.count).to eq(1)
+    end
+  end
 end
