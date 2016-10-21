@@ -1,7 +1,7 @@
 tests: bundle setup units printArt
 
 units:
-	@rspec
+	@bundle exec rspec
 
 bundle:
 	@bundle install
